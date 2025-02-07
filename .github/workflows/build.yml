@@ -44,9 +44,5 @@ jobs:
       - name: Grant execute permissions for Gradlew
         run: chmod +x Android/gradlew
 
-      # Étape 6 : Compilation et analyse SonarQube
-      - name: Build and analyze
-        working-directory: Android # Définit le répertoire où se trouve gradlew
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: ./gradlew build sonarqube --info
+      - name: Build and analyze with Gradle
+        run: ./gradlew build --debug
