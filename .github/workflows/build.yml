@@ -45,5 +45,5 @@ jobs:
         run: chmod +x Android/gradlew
 
       - name: Build and analyze with Gradle
-        run: ./Android/gradlew buildEnvironment --scan
+        run: ./Android/gradlew buildEnvironment --scan -Dgradle.enterprise.buildScanTermsOfServiceAgreement=yes
 
