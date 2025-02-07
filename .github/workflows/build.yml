@@ -44,6 +44,9 @@ jobs:
       - name: Grant execute permissions for Gradlew
         run: chmod +x Android/gradlew
 
+      - name: Configure Gradle properties
+        run: mkdir -p ~/.gradle echo "systemProp.gradle.enterprise.buildScanTermsOfServiceAgreement=yes" >> ~/.gradle/gradle.properties
+
       - name: Build and analyze with Gradle
         run: ./Android/gradlew buildEnvironment --scan -Dgradle.enterprise.buildScanTermsOfServiceAgreement=yes
 
