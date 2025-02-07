@@ -2,14 +2,15 @@
 
 buildscript {
     ext {
-        kotlin_version = '1.3.50'
+        kotlin_version = '1.3.50' // Version Kotlin à mettre à jour si nécessaire
     }
     repositories {
-        jcenter()
         google()
+        mavenCentral() // Remplace jcenter, qui est obsolète
+        jcenter() // Toujours présent si nécessaire pour des dépendances spécifiques
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.0'
+        classpath 'com.android.tools.build:gradle:3.4.0' // Vérifie si cette version est compatible avec ta configuration
 
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
@@ -17,8 +18,9 @@ buildscript {
         // in the individual module build.gradle files
     }
 }
+
 plugins {
-  id "org.sonarqube" version "6.0.1.5171"
+  id "org.sonarqube" version "6.0.1.5171" // Version correcte pour SonarQube
 }
 
 sonar {
@@ -32,14 +34,16 @@ sonar {
 allprojects {
     repositories {
         google()
+        mavenCentral() // Ajout de Maven Central pour remplacer JCenter
         jcenter()
-        maven { url "https://jitpack.io" }
+        maven { url "https://jitpack.io" } // Pour les dépendances tierces hébergées sur GitHub
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
-ext{
-    roomVersion = "1.0.0-beta2"
+
+ext {
+    roomVersion = "1.0.0-beta2" // Dépendance Room, vérifie si elle est utilisée et mets-la à jour si nécessaire
 }
