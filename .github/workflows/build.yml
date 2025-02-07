@@ -45,4 +45,4 @@ jobs:
         run: chmod +x Android/gradlew
 
       - name: Build and analyze with Gradle
-        run: ./gradlew build --debug
+        run: ./Android/gradlew build --debug
