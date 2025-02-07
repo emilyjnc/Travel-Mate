@@ -45,4 +45,5 @@ jobs:
         run: chmod +x Android/gradlew
 
       - name: Build and analyze with Gradle
-        run: ./Android/gradlew build --debug
+        run: ./Android/gradlew buildEnvironment --scan
+
